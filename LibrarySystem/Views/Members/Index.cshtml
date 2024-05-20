@@ -1,0 +1,85 @@
+﻿@model IEnumerable<LibrarySystem.Models.Member>
+
+@{
+    Layout = "~/Views/Shared/_LayoutLibrarian.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<p>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6">
+                <form asp-action="Index" class="my-1 p-2">
+                    <div class="input-group">
+                        <input type="text" name="searchString" placeholder="First or Last Name or Barcode" class="form-control" />
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                            <a asp-controller="Members" asp-action="Index" class="btn btn-secondary">Clear</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <a asp-action="Create" class="btn btn-primary">Add User</a>
+</p>
+
+
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Barcode</th>
+                <th>First </th>
+                <th>Last </th>
+                <th> ID</th>
+                <th>Gender</th>
+                <th>Start</th>
+                <th>Due</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Barcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NationalId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartMembership)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndMembership)
+                    </td>
+
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Barcode">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Barcode">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Barcode">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

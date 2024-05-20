@@ -1,0 +1,56 @@
+﻿@model Order﻿
+
+
+@{
+    Layout = "~/Views/Shared/AfterLogin.cshtml";
+}
+
+<html>
+
+<head>
+    <body>
+        <!-- page title -->
+        <style>
+            .page-title-section {
+                padding: 80px 0; /* You can adjust the top and bottom padding */
+            }
+
+            .custom-breadcrumb {
+                margin-bottom: 10px; /* You can adjust the bottom margin */
+            }
+        </style>
+
+        <section class="page-title-section overlay" data-background="../images/home.png">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <ul class="list-inline custom-breadcrumb mb-2">
+                            <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="index.html">Home</a></li>
+                            <li class="list-inline-item text-white h3 font-secondary nasted">Checkout </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- /page title -->
+        <body>
+            <form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+                <h4>Please confirm your Books Reservation</h4>
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <input type="submit" class="btn btn-primary" value="Complete Order" />
+                    </div>
+                </div>
+            </form>
+        </body>
+     
+
+    </body>
+
+</head>
+</html>
+
+

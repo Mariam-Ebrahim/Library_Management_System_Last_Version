@@ -1,0 +1,89 @@
+﻿@model List<LibrarySystem.Models.Book>
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutLibrarian.cshtml";
+}
+
+
+
+<head>
+
+
+
+    <h>
+        <h1>our Books</h1>
+        <p>Welcome,Admin </p>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6">
+                    <form asp-action="Books" class="my-1 p-2">
+                        <div class="input-group">
+                            <input type="text" name="searchString" placeholder="Title or ISBN or Author" class="form-control" />
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                                <a asp-controller="Books" asp-action="Books" class="btn btn-secondary">Clear</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <a asp-action="Create" class="btn btn-primary"><i class="ti-book"></i> Add Book</a>
+
+    </h>
+</head>
+<body>
+
+    <table class="table">
+
+        <thead>
+            <tr>
+
+                <th>Book</th>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Pages</th>
+           
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a class="a-cleanup" asp-controller="Books" asp-action="Details" asp-route-id="@item.ISBN"><img src="@item.BookImage" style="height: 4em"></a>
+                    </td>
+                    <td>
+                        <a class="a-cleanup" asp-controller="Books" asp-action="Details" asp-route-id="@item.ISBN">@item.ISBN</a>
+                    </td>
+                    <td>
+                        <a class="a-cleanup" asp-controller="Books" asp-action="Details" asp-route-id="@item.ISBN">@item.Title</a>
+                    </td>
+                    <td>
+                        <a class="a-cleanup">@(item.Author?.Name ?? "Unknown")</a>
+                    </td>
+                    <td>
+                        <a class="a-cleanup"> @(item.Category?.CategoryName ?? "Unknown")</a>
+                    </td>
+                    <td>
+                        <a class="a-cleanup"> @item.NumberOfPages</a>
+                    </td>
+                  
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ISBN" class="btn btn-primary"><i class="ti-more-alt"></i>Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ISBN" class="btn btn-primary"><i class="ti-more-alt"></i>Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ISBN" class="btn btn-primary"><i class="ti-more-alt"></i>Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>

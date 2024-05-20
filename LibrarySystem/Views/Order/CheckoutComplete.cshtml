@@ -1,0 +1,56 @@
+﻿@model LibrarySystem.Models.Order
+ 
+@{
+    Layout = "~/Views/Shared/AfterLogin.cshtml";
+}
+
+
+
+<section class="page-title-section overlay" data-background="../images/home.png">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline custom-breadcrumb mb-2">
+                    <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="index.html">Home</a></li>
+                    <li class="list-inline-item text-white h3 font-secondary nasted">Compelete Checkout </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <table class="table">
+        <thead>
+
+        
+            <tr>
+                <th></th>
+                <th>Book</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>
+                        <a class="a-cleanup" ><img src="@item.Book.BookImage" style="height: 4em"></a>
+                    </td>
+                    <td>
+                        <a class="a-cleanup" >@item.Book.Title</a>
+                    </td>
+                   
+                </tr>
+            }
+        <p>Thank you for your order! come and pick up your books </p>
+        <h5 class="mt-5">Order Id: @Model.Id</h5>
+        </tbody>
+        <tfoot>
+            <td></td>
+            <td class="text-right">
+        
+            </td>
+         
+            <td></td>
+        </tfoot>
+    </table>

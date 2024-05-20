@@ -1,0 +1,119 @@
+﻿@model List<LibrarySystem.Models.Service>
+@{
+    var isLoggedIn = Context.Session.GetString("IsLoggedIn");
+    var isRegistered = Context.Session.GetString("IsRegistered");
+    Layout = (isLoggedIn == "true" || isRegistered == "true") ? "~/Views/Shared/AfterLogin.cshtml" : "~/Views/Shared/BeforeLogin.cshtml";
+}
+
+
+
+<html lang="en"> 
+<head>
+
+   
+</head>
+
+
+<body>
+  
+    <!-- page title -->
+    <section class="page-title-section overlay" data-background="../images/home.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-inline custom-breadcrumb mb-2">
+                        <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="index.html">Home</a></li>
+                        <li class="list-inline-item text-white h3 font-secondary nasted">Our Services</li>
+                    </ul>
+                    <p class="text-lighten mb-0">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /page title -->
+    <!-- services -->
+    <style>
+        body {
+            background-color: #f8f8f8;
+            color: #000;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .top-row, .bottom-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin: 15px 0; /* Adjust the margin to create space between the rows */
+        }
+
+        .service-block {
+            background-color: #fff;
+            border-radius:50%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            width: 280px; /* Increased block width */
+            height: 260px; /* Decreased block height */
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .service-block:hover {
+                transform: scale(1.05);
+            }
+
+        .service-logo {
+            max-width: 75px;
+            max-height: 75px;
+            margin-bottom: 10px;/
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        h2 {
+            color: #000;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: #666;
+            font-size: 15px;
+        }
+    </style>
+
+    <div class="services-container">
+        <div class="row justify-content-center">
+            @foreach(var service  in Model )
+            {
+              <div class="service-block">
+                <img src="@service.ServiceImage" alt="Quiet Study Zones Logo" class="service-logo">
+                <h2>@service.Name</h2>
+                <p>@service.Description</p>
+              </div>
+            }
+        </div>
+    </div>
+    <!--/services-->
+    <!-- footer -->
+ 
+
+</body>
+</html>

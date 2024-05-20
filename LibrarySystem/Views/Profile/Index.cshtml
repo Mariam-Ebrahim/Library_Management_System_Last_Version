@@ -1,0 +1,54 @@
+﻿@model LibrarySystem.Models.Member
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+@{
+    Layout = "~/Views/Shared/AfterLogin.cshtml";
+}
+
+
+
+<html lang="en">
+<body>
+    <!-- page title -->
+    <section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-inline custom-breadcrumb mb-2">
+                        <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="index.html">Home</a></li>
+                        <li class="list-inline-item text-white h3 font-secondary nasted">Your Profile</li>
+                    </ul>
+                    <p class="text-lighten mb-0">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!---profile---->
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-photo-container">
+                <img src="@Model.ImageString" class="profile-photo">
+            </div>
+            <div class="user-info">
+
+                <p>Hello @Model.UserName</p>
+                <p>Email: @Model.Email</p>
+
+                <!-- Display other user information as needed -->
+
+                <p>Membership: @Model.StartMembership.ToString("MMM d, yyyy")</p>
+                <p>End of Membership: @Model.EndMembership.ToString("MMM d, yyyy")</p>
+            </div>
+        </div>
+        <p class="toggle-link">Want to edit your account ? <a asp-controller="Profile" asp-action="Account" style="color: orange;">Edit Account</a></p>
+
+    </div>
+
+    </div>
+
+
+
+</body>
+</html>
+

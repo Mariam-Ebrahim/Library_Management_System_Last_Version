@@ -1,0 +1,64 @@
+﻿@model LibrarySystem.Models.Member
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutLibrarian.cshtml";
+}
+
+
+<html>
+<h1>Delete</h1>
+<head>
+
+    <style>
+        .book-info {
+            margin-left: 20px; 
+        }
+
+    </style>
+</head>
+<body>
+  <div>
+       <h3>Are you sure you want to delete this?</h3>
+    <div class="row book-info">
+        <div class="col-md-6">
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Barcode</dt>
+                <dd class="col-sm-9">@Model.Barcode</dd>
+                <dt class="col-sm-3">First Name</dt>
+                <dd class="col-sm-9">@Model.FirstName</dd>
+                <dt class="col-sm-3">Last Name</dt>
+                <dd class="col-sm-9">@Model.LastName</dd>
+                <dt class="col-sm-3">National ID</dt>
+                <dd class="col-sm-9">@Model.NationalId</dd>
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">@Model.Email</dd>
+                <dt class="col-sm-3">Gender</dt>
+                <dd class="col-sm-9">@Model.Gender</dd>
+                <dt class="col-sm-3">Start Date</dt>
+                <dd class="col-sm-9">@Model.StartMembership</dd>
+                <dt class="col-sm-3">End Date</dt>
+                <dd class="col-sm-9">@Model.EndMembership</dd>
+                <dt class="col-sm-3">Street</dt>
+                <dd class="col-sm-9">@Model.Street</dd>
+                <dt class="col-sm-3">City</dt>
+                <dd class="col-sm-9">@Model.City</dd>
+                <dt class="col-sm-3">Country</dt>
+                <dd class="col-sm-9">@Model.Country</dd>
+            </dl>
+        </div>
+     </div>
+  </div>
+
+   <div>    
+       <form asp-action="Delete">
+          <a asp-action="Index" class="btn btn-primary">Back</a> |
+          <input type="hidden" asp-for="Barcode" />
+          <input type="submit" value="Delete" class="btn btn-danger" /> 
+      
+       </form>
+   </div>
+        
+</body>
+</html>

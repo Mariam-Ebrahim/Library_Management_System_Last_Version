@@ -1,0 +1,100 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:700|Roboto:400,400i,700&display=swap" rel="stylesheet">
+	<!-- FontAwesome JS-->
+	<script defer src="assetss/fontawesome/js/all.min.js"></script>
+	<!-- Theme CSS -->
+	<link id="theme-style" rel="stylesheet" href="~/assetss/css/theme.css">
+
+</head>
+
+<body>
+	@* <header class="header">
+		<div class="branding">
+			<div class="container-fluid position-relative py-3">
+			</div><!--//container-->
+		</div><!--//branding-->
+	</header><!--//header--> *@
+
+	<section class="hero-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-7 pt-5 mb-5 align-self-center">
+					<div class="promo pe-md-3 pe-lg-5">
+						<h1 class="headline mb-3">
+							Welcome to our Library <br>
+						</h1><!--//headline-->
+						<p>“Let’s be reasonable and add an eighth day to the week that is devoted exclusively to reading.”
+							- Lena Dunham</p>
+
+						<div class="cta-holder row gx-md-3 gy-3 gy-md-0">
+							<div class="col-12 col-md-auto">
+								<a class="btn btn-primary w-100" asp-controller="Librarian" asp-action="Login"> Continue As Librarian</a>
+							</div>
+							<div class="col-12 col-md-auto">
+								<a class="btn btn-primary w-100" asp-controller="Home" asp-action="Index">Continue As User </a>
+							</div>
+						
+						</div><!--//cta-holder-->
+
+					@* 	<div class="hero-quotes mt-5">
+							<div id="quotes-carousel" class="quotes-carousel carousel slide carousel-fade mb-5" data-bs-ride="carousel" data-bs-interval="8000">
+
+
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+									
+								
+									</div><!--//carousel-item-->
+									<div class="carousel-item">
+							
+										<div class="source row gx-md-3 gy-3 gy-md-0 align-items-center">
+										
+										</div><!--//source-->
+									</div><!--//carousel-item-->
+									<div class="carousel-item">
+								
+										
+									</div><!--//carousel-item-->
+								</div><!--//carousel-inner-->
+							</div><!--//quotes-carousel-->
+						</div><!--//hero-quotes--> *@
+					</div><!--//promo-->
+				</div><!--col-->
+				<div class="col-12 col-md-5 mb-5 align-self-center">
+					<div class="book-cover-holder">
+						<img class="img-fluid book-cover" src="assetss/images/welcome.png" alt="book cover" width="3000" height="80">
+					</div>
+					<!--//book-cover-holder-->
+					
+			</div><!--//row-->
+		</div><!--//container-->
+	</section><!--//hero-section-->
+	<!-- Javascript -->
+
+	<script src="assetss/plugins/popper.min.js"></script>
+	<script src="assetss/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assetss/plugins/smoothscroll.min.js"></script>
+	<script src="assetss/js/main.js"></script>
+
+</body>
+</html>

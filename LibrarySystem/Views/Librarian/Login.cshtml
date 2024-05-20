@@ -1,0 +1,60 @@
+﻿@model LibrarySystem.Models.Librarian
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/LibrarianBeforeLogin.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head content -->
+    <!-- Your CSS and JS file paths -->
+    <!-- ... -->
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-10 d-flex flex-column align-items-center justify-content-center">
+                            <!-- Card content -->
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="pt-4 pb-2">
+                                        <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                                    </div>
+
+                                    <form method="post" asp-action="Login">
+                                        <div class="form-group">
+                                            <label for="yourId">ID</label>
+                                            <input type="text" asp-for="@Model.LibrarianId" class="form-control" id="yourId" name="LibrarianId" placeholder="Enter your ID" required>
+                                            <span asp-validation-for="@Model.LibrarianId" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="yourPassword">Password</label>
+                                            <input type="password" asp-for="@Model.Password" class="form-control" id="yourPassword" name="Password" placeholder="Enter your Password" required>
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+
+                                        
+
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                                        <label class="alert-danger">@ViewData["Error"]</label>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <!-- Your JS file paths -->
+    <!-- ... -->
+</body>
+</html>

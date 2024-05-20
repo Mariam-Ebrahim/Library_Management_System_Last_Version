@@ -1,0 +1,69 @@
+﻿@model Member
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutLibrarian.cshtml";
+}
+
+<h1>Create</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" style="background-color: white; padding: 20px; border-radius: 8px;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>First Name</label>
+                <input asp-for="FirstName" class="form-control" required minlength="2" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input asp-for="LastName" class="form-control" required minlength="2" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>National ID</label>
+                <input asp-for="NationalId" class="form-control" required minlength="14" maxlength="14" pattern="^[0-9]+$" />
+                <span asp-validation-for="NationalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <select asp-for="Gender" class="form-control" required>
+                    <option value="">Select Gender</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Street</label>
+                <input asp-for="Street" class="form-control" required />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input asp-for="City" class="form-control" required  />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                <input asp-for="Country" class="form-control" required />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-controller="Members" asp-action="Index" class="btn btn-primary">Back</a>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

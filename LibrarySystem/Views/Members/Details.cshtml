@@ -1,0 +1,61 @@
+﻿@model LibrarySystem.Models.Member
+
+@{
+    ViewData["Title"] = "Details";
+
+    Layout = "~/Views/Shared/_LayoutLibrarian.cshtml";
+}
+
+
+
+<html>
+<h1>Details</h1>
+<head>
+    <!-- Add your head content here -->
+    <style>
+        .book-info {
+            margin-left: 20px; /* Adjust the margin as needed */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="row book-info">
+
+        <div class="col-md-6">
+
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Barcode</dt>
+                <dd class="col-sm-9">@Model.Barcode</dd>
+                <dt class="col-sm-3">First Name</dt>
+                <dd class="col-sm-9">@Model.FirstName</dd>
+                <dt class="col-sm-3">Last Name</dt>
+                <dd class="col-sm-9">@Model.LastName</dd>
+                <dt class="col-sm-3">National ID</dt>
+                <dd class="col-sm-9">@Model.NationalId</dd>
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">@Model.Email</dd>
+                <dt class="col-sm-3">Gender</dt>
+                <dd class="col-sm-9">@Model.Gender</dd>
+                <dt class="col-sm-3">Start Date</dt>
+                <dd class="col-sm-9">@Model.StartMembership</dd>
+                <dt class="col-sm-3">End Date</dt>
+                <dd class="col-sm-9">@Model.EndMembership</dd>
+                <dt class="col-sm-3">Street</dt>
+                <dd class="col-sm-9">@Model.Street</dd>
+                <dt class="col-sm-3">City</dt>
+                <dd class="col-sm-9">@Model.City</dd>
+                <dt class="col-sm-3">Country</dt>
+                <dd class="col-sm-9">@Model.Country</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" class="btn btn-primary">Back</a> |
+        <a asp-action="Edit" asp-route-id="@Model?.Barcode" class="btn btn-primary">Edit</a>
+
+    </div>
+</body>
+</html>

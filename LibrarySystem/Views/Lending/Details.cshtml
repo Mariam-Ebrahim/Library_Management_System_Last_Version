@@ -1,0 +1,40 @@
+﻿@model IEnumerable<LibrarySystem.Models.OrderItem>
+
+@{
+    Layout = "~/Views/Shared/_LayoutLibrarian.cshtml";
+}
+
+<h1>Details</h1>
+
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th> 
+                <th>Book ISBN</th>
+ 
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookId)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>
+        <form asp-action="Index" asp-controller="Lending" method="post">
+            <button type="submit" class="btn btn-primary"><i class="ti-lending"></i> Back</button>
+        </form>
+    </p>
+
+</body>

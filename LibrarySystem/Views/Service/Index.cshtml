@@ -1,0 +1,62 @@
+﻿@model List<LibrarySystem.Models.Service>
+
+@{
+    
+    Layout = "~/Views/Shared/_LayoutLibrarian.cshtml";
+}
+
+
+
+<head>
+    <h1>Index</h1>
+
+     
+    <p>
+    <form asp-action="Create" asp-controller="Service" method="post">
+        <button type="submit" class="btn btn-primary"><i class="ti-service"></i> Add Service</button>
+    </form>
+     </p>   
+    
+</head>
+<body>
+
+    <table class="table">
+    
+        <thead>
+            <tr>
+
+                
+                <th>ID</th>
+                <th>Service Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a class="a-cleanup" asp-controller="Service" asp-action="Details" asp-route-id="@item.ServiceId">@item.ServiceId</a>
+                    </td>
+                    <td>
+                        <a class="a-cleanup" asp-controller="Service" asp-action="Details" asp-route-id="@item.ServiceId">@item.Name</a>
+                    </td>
+                    <td>
+                        <a class="a-cleanup" asp-controller="Service" asp-action="Details" asp-route-id="@item.ServiceId">@item.Description</a>
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ServiceId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ServiceId">Details</a> 
+                        <a asp-action="Delete" asp-route-id="@item.ServiceId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+
+
+

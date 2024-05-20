@@ -1,0 +1,110 @@
+﻿@model Member
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+@{
+    Layout = "~/Views/Shared/BeforeLogin.cshtml";
+}
+
+
+<html lang="en">
+
+
+<body>
+    <!-- preloader start -->
+    <div class="preloader">
+        <img src="~/images/preloader.gif" alt="preloader">
+    </div>
+    <!-- preloader end -->
+ 
+    <!-- /header -->
+    <!-- page title -->
+    <section class="page-title-section overlay" data-background="../images/watch.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-inline custom-breadcrumb mb-2">
+                        <li class="list-inline-item"><a class="h2 text-primary font-secondary" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="list-inline-item text-white h3 font-secondary nasted">Register</li>
+                    </ul>
+                    <p class="text-lighten mb-0">A great book should leave you with many experiences, and slightly exhausted at the end. You live several lives while reading. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-----Register ----->
+    <!-- Modal -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Enter Your Information</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <form method="POST" asp-action="Register" enctype="multipart/form-data" onsubmit="return validateForm()">
+                        <div class="col-12">
+                            <label for="signupBarcode">Barcode</label>
+                            <input type="text" class="form-control mb-3" id="signupBarcode" name="Barcode" placeholder="Enter your Barcode" asp-for="@Model.Barcode" required>
+                            <span asp-validation-for="@Model.Barcode" class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <label for="signupUserName">User Name</label>
+                            <input type="text" class="form-control mb-3" id="signupUserName" name="UserName" placeholder="Enter your Username" asp-for="@Model.UserName" required minlength="2">
+                            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" class="form-control mb-3" id="signupEmail" name="Email" placeholder="Enter your Email" asp-for="@Model.Email" required >
+                            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" class="form-control mb-3" id="signupPassword" name="Password" placeholder="Enter your Password" asp-for="@Model.Password" required minlength="4">
+                            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <label for="uploadImage">Upload Image</label>
+                            <input type="file" class="form-control mb-3" id="uploadImage" name="ProfileImageFile" asp-for="@Model.ProfileImageFile">
+                            <span asp-validation-for="@Model.ProfileImageFile" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">SIGN UP</button>
+                        </div>
+                        <label class="alert-danger">@ViewData["WrongMessage"]</label>
+                    </form>
+
+                    <script>
+                        function validateForm() {
+                            var fileInput = document.getElementById("uploadImage");
+
+                            // Check if any files are selected
+                            if (fileInput.files.length > 0) {
+                                var filePath = fileInput.value;
+                                var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+                                // Check the file extension
+                                var fileName = fileInput.files[0].name;
+                                if (!allowedExtensions.exec(fileName)) {
+                                    alert('Please upload only images with the following extensions: .jpg, .jpeg, .png');
+                                    fileInput.value = '';
+                                    return false;
+                                }
+                            }
+
+                            // Continue with other form validation logic
+                            return true;
+                        }
+                    </script>
+ 
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+</html>

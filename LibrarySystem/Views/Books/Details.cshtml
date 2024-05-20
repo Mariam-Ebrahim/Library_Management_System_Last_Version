@@ -1,0 +1,59 @@
+﻿@model LibrarySystem.Models.Book
+
+@{
+    Layout = "~/Views/Shared/_LayoutLibrarian.cshtml";
+}
+
+<html>
+<head>
+    <!-- Add your head content here -->
+    <style>
+        .book-info {
+            margin-left: 20px; /* Adjust the margin as needed */
+        }
+
+        .book-image {
+            max-width: 50%;
+            height: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="row book-info">
+        <div class="col-md-6">
+            <h1>welcome</h1>
+            <h4> BOOK </h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Title</dt>
+                <dd class="col-sm-9">@Model.Title</dd>
+                <dt class="col-sm-3">Author</dt>
+                <dd class="col-sm-9">@Model.Author.Name</dd>
+                <dt class="col-sm-3">Category</dt>
+                <dd class="col-sm-9">@Model.Category.CategoryName</dd>
+                <dt class="col-sm-3">Price</dt>
+                <dd class="col-sm-9">@Model.Price</dd>
+                <dt class="col-sm-3">Description</dt>
+                <dd class="col-sm-9">@Model.Descripttion</dd>
+                <dt class="col-sm-3">Pages</dt>
+                <dd class="col-sm-9">@Model.NumberOfPages</dd>
+              
+            </dl>
+        </div>
+
+        <div class="col-md-6">
+            <div class="text-center">
+                <p>Image</p>
+                <img src="@Model.BookImage" class="img-fluid book-image" alt="Book Image" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3 book-info">
+        <div class="col-md-12 text-center">
+            <a asp-controller="Books" asp-action="Books" class="btn btn-primary"><i class="ti-more-alt"></i>Back</a> |
+            <a asp-action="Edit" asp-route-id="@Model?.ISBN" class="btn btn-warning"><i class="ti-more-alt"></i>Edit</a>
+        </div>
+    </div>
+</body>
+</html>

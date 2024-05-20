@@ -1,0 +1,68 @@
+﻿@model LibrarySystem.Models.Member
+
+@{
+    Layout = "~/Views/Shared/AfterLogin.cshtml";
+}
+
+
+
+<html lang="en">
+<head>
+
+
+</head>
+
+<body>
+
+
+    <!-- page title -->
+    <section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-inline custom-breadcrumb mb-2">
+                        <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="index.html">Home</a></li>
+                        <li class="list-inline-item text-white h3 font-secondary nasted">Account settings</li>
+                    </ul>
+                    <p class="text-lighten mb-0">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /page title -->
+    <!-- Account -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Your Personal Information</h2>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <form asp-action="Account" method="POST">
+                        <div style="font-family: 'Arial', sans-serif; color: #333;">
+
+                            <label for="user-name" style="font-weight: bold;">Change User Name</label>
+                            <input type="text" class="form-control mb-3" id="user-name" name="UserName" placeholder="New User " asp-for="@Model.UserName">
+
+                            <label for="current-password" style="font-weight: bold;">Current Password</label>
+                            <input type="password" class="form-control mb-3" id="current-password" name="Password" placeholder="Enter Your current password" asp-for="@Model.Password" required minlength="4">
+
+                            <label for="password" style="font-weight: bold;">Change Password</label>
+                            <input type="password" class="form-control mb-3" id="password" name="newPassword" placeholder=" Enter New Password" >
+
+                            <label for="confirm-password" style="font-weight: bold;">Confirm Password:</label>
+                            <input type="password" class="form-control mb-3" id="confirm-password" name="confirmPassword" placeholder="Confirm New Password" >
+
+                            <button type="submit" value="send" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Account -->
+</body>
+</html>

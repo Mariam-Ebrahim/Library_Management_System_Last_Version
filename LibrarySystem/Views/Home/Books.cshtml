@@ -1,0 +1,115 @@
+﻿@model List<LibrarySystem.Models.Book>
+
+<!-- your view code here -->
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+@{
+}
+
+@{
+
+    var isLoggedIn = Context.Session.GetString("IsLoggedIn");
+    var isRegistered = Context.Session.GetString("IsRegistered");
+    Layout = (isLoggedIn == "true" || isRegistered == "true") ? "~/Views/Shared/AfterLogin.cshtml" : "~/Views/Shared/BeforeLogin.cshtml";
+}
+
+
+
+<html lang="en">
+<head>
+
+ 
+</head>
+
+<body>
+
+
+    <!-- header -->
+ 
+    <!-- /header -->
+    <!-- page title -->
+    <section class="page-title-section overlay" data-background="../images/books.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="list-inline custom-breadcrumb mb-2">
+                        <li class="list-inline-item"><a class="h2 text-primary font-secondary" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="list-inline-item text-white h3 font-secondary nasted">Our Books</li>
+                    </ul>
+                    <p class="text-lighten mb-0">A great book should leave you with many experiences, and slightly exhausted at the end. You live several lives while reading. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /page title -->
+    <div class="row">
+        <p>  </p>
+        <p>.  </p>
+
+    </div>
+
+@*     <form asp-action="Books" class="col-2 my-1 p-2">
+        <div>
+            <h5>Search</h5>
+            <div class="my-1">
+                <input type="text" name="searchString" placeholder="Title or Author" class="form-control-sm col-12" />
+            </div>
+
+            <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+            <a asp-action="Books" class="btn btn-secondary btn-sm float-right">Clear</a>
+        </div>
+    </form>
+
+ *@
+    <!--------------------------------------------------------search--------------------------------------->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6">
+                <form asp-action="Books" class="my-1 p-2">
+                    <div class="input-group">
+                        <input type="text" name="searchString" placeholder="Title or Author" class="form-control" />
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                            <a asp-action="Books" class="btn btn-secondary">Clear</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------------------------search--------------------------------------->
+
+    <!-- courses -->
+    <section class="section">
+        <div class="container">
+            <!-- course list -->
+            <div class="row justify-content-center">
+                <!-- course item -->
+                @foreach (var book in Model)
+                {
+                    <div class="col-lg-4 col-sm-6 mb-5">
+                        <div class="card p-0 border-primary rounded-0 hover-shadow" style="width:100%">
+                            <img class="card-img-top rounded-0" src=@book.BookImage>
+                            <div class="card-body">
+                                <ul class="list-inline mb-2">
+                                </ul>
+                                <a href="course-single.html">
+                                    <h4 class="card-title">@book.Title</h4>
+           
+                                </a>
+                                <p class="card-text mb-4">
+                                    @book.Descripttion
+                                </p>
+                                <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.ISBN" class="btn btn-primary float-right store-btn"><i class="fa-solid fa-cart-plus"></i>Reserve Now</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <!-- /courses -->
+    <!-- footer -->
+ 
+
+</body>
+</html>

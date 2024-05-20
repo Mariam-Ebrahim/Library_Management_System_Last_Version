@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LibrarySystem.Models.Order>
+
+@{
+    Layout = "~/Views/Shared/_LayoutLibrarian.cshtml";
+}
+
+<h1>Index</h1>
+
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Barcode</th>
+                <th>Checkout Date</th>
+                <th>Due Date</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Barcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CheckoutDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+   
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>
+        <form asp-action="Details" asp-controller="Lending" method="post">
+            <button type="submit" class="btn btn-primary"><i class="ti-lending"></i> View Details</button>
+        </form>
+    </p>
+    
+</body>
